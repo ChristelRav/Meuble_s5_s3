@@ -18,6 +18,7 @@ CREATE TABLE modele (
 CREATE TABLE sousCategorie (
     idSousCategorie SERIAL PRIMARY KEY,
     idCategorie INT REFERENCES categorie(idCategorie),
+    sousCategorie VARCHAR(155),
     longueur DOUBLE PRECISION DEFAULT 15,
     largeur DOUBLE PRECISION DEFAULT 15,
     plus DOUBLE PRECISION DEFAULT 15, 

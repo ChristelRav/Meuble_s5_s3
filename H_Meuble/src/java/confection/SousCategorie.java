@@ -10,6 +10,7 @@ package confection;
  */
 public class SousCategorie {
     int idSousCategorie,idCategorie;
+    String sousCategorie;
     double longueur,largeur,plus,tempsFabrication;
 
     public int getIdSousCategorie() {
@@ -58,7 +59,7 @@ public class SousCategorie {
 
     public void setTempsFabrication(double tempsFabrication) {
         this.tempsFabrication = tempsFabrication;
-    }
+    }   
     
     
 }
