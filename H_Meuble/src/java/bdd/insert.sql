@@ -21,15 +21,22 @@ INSERT INTO sousCategorie (idCategorie,sousCategorie,longueur,largeur, plus ,tem
 (1,'canape meridienne',300,100,5, '15:30:00'),
 (1,'pouf // repose pieds ',50,50,1, '08:00:00'),
 
-(2,'chaise de gaming',150,80,50, '12:30:00'),
-(2,'tabouret',80,50,40, '12:30:00'),
-(2,'chaise de bureau',100,90,50, '09:30:00'),
-(2,'chaise meridienne',170,120,50, '15:30:00'),
+(2,'chaise de gaming',150,80,50, '10:30:00'),
+(2,'tabouret',80,50,40, '08:30:00'),
+(2,'chaise de bureau',100,90,50, '12:00:00'),
+(2,'chaise meridienne',170,120,50, '15:00:00'),
 
-(3,'chaise de gaming',150,80,50, '12:30:00'),
-(3,'tabouret',80,50,40, '12:30:00'),
-(3,'chaise de bureau',100,90,50, '09:30:00'),
-(3,'chaise meridienne',170,120,50, '15:30:00'),
+(3,'lit double',150,80,50, '12:30:00'),
+(3,'lit simple',80,50,40, '12:30:00'),
+(3,'lit rembourre',200,160,140, '09:30:00'),
+(3,'lit superposee',200,90,100, '15:30:00'),
+
+(3,'lit double',150,80,50, '12:30:00'),
+(3,'lit simple',80,50,40, '12:30:00'),
+(3,'lit rembourre',200,160,140, '09:30:00'),
+(3,'lit superposee',200,90,100, '15:30:00'),
+
+
 
 
 
