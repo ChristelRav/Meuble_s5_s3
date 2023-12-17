@@ -5,7 +5,7 @@
 package confection;
 
 import java.sql.Date;
-
+import outil.*;
 /**
  *
  * @author njaka
@@ -63,6 +63,11 @@ public class MeubleConfectionne {
     public void setDateConfection(Date dateConfection) {
         this.dateConfection = dateConfection;
     }
-    
+    public static Object[] selectAll()throws Exception
+    {
+        String requete="select * from MeubleConfectionne;";
+        Object[] result=General.takeObjects(Class.forName("confection.MeubleConfectionne"),requete);
+        return result;
+    }
     
 }

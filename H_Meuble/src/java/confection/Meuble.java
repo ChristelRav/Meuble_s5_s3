@@ -4,6 +4,8 @@
  */
 package confection;
 
+import outil.*;
+
 /**
  *
  * @author njaka
@@ -35,7 +37,12 @@ public class Meuble {
     public void setIdStyle(int idStyle) {
         this.idStyle = idStyle;
     }
-    
+    public static Object[] selectAll()throws Exception
+    {
+        String requete="select * from Meuble;";
+        Object[] result=General.takeObjects(Class.forName("confection.Meuble"),requete);
+        return result;
+    }
     
     
 }

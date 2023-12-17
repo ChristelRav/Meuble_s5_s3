@@ -4,6 +4,8 @@
  */
 package confection;
 
+import outil.General;
+
 /**
  *
  * @author njaka
@@ -38,5 +40,10 @@ public class Style {
         this.tempsFabrication = tempsFabrication;
     }
     
-    
+    public static Object[] selectAll()throws Exception
+    {
+        String requete="select * from Style;";
+        Object[] result=General.takeObjects(Class.forName("confection.Style"),requete);
+        return result;
+    }
 }

@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package confection;
-
+import outil.*;
 /**
  *
  * @author ravmi
@@ -58,6 +58,12 @@ public class Modele {
 
     public void setModelecol4(String modelecol4) {
         this.modelecol4 = modelecol4;
+    }
+    public static Object[] selectAll()throws Exception
+    {
+        String requete="select * from Modele;";
+        Object[] result=General.takeObjects(Class.forName("confection.Modele"),requete);
+        return result;
     }
     
 }

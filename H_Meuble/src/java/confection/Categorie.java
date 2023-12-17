@@ -4,6 +4,8 @@
  */
 package confection;
 
+import confection.*;
+
 /**
  *
  * @author ravmi
@@ -27,6 +29,11 @@ public class Categorie {
     public void setCategorie(String categorie) {
         this.categorie = categorie;
     }
-    
+    public static Object[] selectAll()throws Exception
+    {
+        String requete="select * from Categorie;";
+        Object[] result=General.takeObjects(Class.forName("confection.Categorie"),requete);
+        return result;
+    }
     
 }

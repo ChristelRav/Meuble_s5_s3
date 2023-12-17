@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package confection;
-
+import outil.*;
 /**
  *
  * @author ravmi
@@ -67,6 +67,12 @@ public class SousCategorie {
 
     public void setTempsFabrication(double tempsFabrication) {
         this.tempsFabrication = tempsFabrication;
+    }
+    public static Object[] selectAll()throws Exception
+    {
+        String requete="select * from SousCategorie;";
+        Object[] result=General.takeObjects(Class.forName("confection.SousCategorie"),requete);
+        return result;
     }
 
     

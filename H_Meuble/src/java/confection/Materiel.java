@@ -4,6 +4,8 @@
  */
 package confection;
 
+import outil.*;
+
 /**
  *
  * @author njaka
@@ -36,6 +38,12 @@ public class Materiel {
 
     public void setUnite(String unite) {
         this.unite = unite;
+    }
+    public static Object[] selectAll()throws Exception
+    {
+        String requete="select * from Materiel;";
+        Object[] result=General.takeObjects(Class.forName("confection.Materiel"),requete);
+        return result;
     }
     
     

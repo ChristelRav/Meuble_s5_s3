@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package confection;
-
+import outil.*;
 /**
  *
  * @author njaka
@@ -37,5 +37,10 @@ public class StyleMateriel {
         this.idMateriel = idMateriel;
     }
     
-    
+    public static Object[] selectAll()throws Exception
+    {
+        String requete="select * from StyleMateriel;";
+        Object[] result=General.takeObjects(Class.forName("confection.StyleMateriel"),requete);
+        return result;
+    }
 }

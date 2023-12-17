@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package confection;
-
+import outil.*;
 /**
  *
  * @author njaka
@@ -44,6 +44,12 @@ public class ConfectionMeuble {
 
     public void setQuantiteUtilisee(double quantiteUtilisee) {
         this.quantiteUtilisee = quantiteUtilisee;
+    }
+    public static Object[] selectAll()throws Exception
+    {
+        String requete="select * from ConfectionMeuble;";
+        Object[] result=General.takeObjects(Class.forName("confection.ConfectionMeuble"),requete);
+        return result;
     }
     
     
