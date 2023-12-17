@@ -39,25 +39,8 @@
             </div>   
               
             <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Formulaire Séléction/</span> Matériel</h4>
-             <div class="row">
-                    <div class="col-md-5">
-                      <div class="card mb-4">
-                        <h5 class="card-header">Matériel</h5>
-                        <div class="card-body">
-                          <div>
-                                <select type="text" class="form-control" id="basic-default-name"  >
-                                           <option>Royal</option>
-                                           <option>Bohème</option>
-                                </select>
-                          </div>
-                          <div class="demo-inline-spacing">
-                                <button type="button" class="btn btn-info">Sélectionné</button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                 
-                   <div class="col-md-7">
+             <div class="row">                 
+                   <div class="col-md-12">
                         <div class="card mb-4">
                             <h5 class="card-header">Liste Séléction</h5>
                             <div class="table-responsive text-nowrap">
