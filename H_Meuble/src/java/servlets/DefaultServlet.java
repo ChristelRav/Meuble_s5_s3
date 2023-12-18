@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import outil.DbConnect;
 import java.sql.Connection;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletResponse;
 
 /**
@@ -33,10 +34,24 @@ public class DefaultServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             try{
-                   out.println("<h1>Servlet DefaultServlet at " + request.getContextPath() + "</h1>");
-            out.println("Confection Meuble!");
-            Connection Connection = new DbConnect().getConnect();
-            out.println(Connection);
+                 int a ;
+               if(request.getParameter("a")==null){
+                    a = (int)request.getAttribute("a");
+               }else{
+                    a = Integer.parseInt(request.getParameter("a"));
+               }
+               
+                //dispatch
+                   if(a  == 1 ){ 
+                       RequestDispatcher dispat = request.getRequestDispatcher("/pages/confection/default/index.jsp");
+                       dispat.forward(request, response);
+                   }else if( a == 2){
+                        RequestDispatcher dispat = request.getRequestDispatcher("/pages/confection/default/style.jsp");
+                        dispat.forward(request,response);
+                   }else if(a == 3){
+                        RequestDispatcher dispat = request.getRequestDispatcher("/pages/confection/default/materiel.jsp");
+                        dispat.forward(request,response);
+                   }
             }catch(Exception e){
                 out.println(e.getMessage());
             }

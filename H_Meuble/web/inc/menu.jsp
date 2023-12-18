@@ -85,17 +85,17 @@
               </a>
               <ul class="menu-sub">
                 <li class="menu-item">
-                  <a href="${pageContext.request.contextPath}/pages/confection/default/index.jsp" class="menu-link">
+                  <a href="${pageContext.request.contextPath}/DefaultServlet?a=1" class="menu-link">
                     <div data-i18n="Without menu">Insertion Catégorie</div>
                   </a>
                 </li>
                 <li class="menu-item">
-                  <a href="${pageContext.request.contextPath}/pages/confection/default/style.jsp" class="menu-link">
+                  <a href="${pageContext.request.contextPath}/DefaultServlet?a=2" class="menu-link">
                     <div data-i18n="Without menu">Insertion Style</div>
                   </a>
                 </li>
                 <li class="menu-item">
-                  <a href="${pageContext.request.contextPath}/pages/confection/default/materiel.jsp" class="menu-link">
+                  <a href="${pageContext.request.contextPath}/DefaultServlet?a=3" class="menu-link">
                     <div data-i18n="Without navbar">Insertion Matériel</div>
                   </a>
                 </li>
