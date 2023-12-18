@@ -4,7 +4,7 @@
  */
 package confection;
 
-import confection.*;
+
 import outil.*;
 /**
  *
