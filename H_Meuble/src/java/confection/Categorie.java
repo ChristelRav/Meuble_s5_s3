@@ -53,7 +53,7 @@ public class Categorie {
     }
     Categorie pan = new Categorie();
     try (Statement stmt = c.createStatement()) {
-        stmt.executeUpdate("INSERT INTO categorie (categorie) VALUES (" + this.getCategorie() + ")", Statement.RETURN_GENERATED_KEYS);
+        stmt.executeUpdate("INSERT INTO categorie (categorie) VALUES ('" + this.getCategorie() + "')", Statement.RETURN_GENERATED_KEYS);
         try (ResultSet rs = stmt.getGeneratedKeys()) {
             if (rs.next()) pan = new Categorie(rs.getInt(1), rs.getString(2));
         }
