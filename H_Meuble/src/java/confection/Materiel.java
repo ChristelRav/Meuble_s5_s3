@@ -54,9 +54,7 @@ public class Materiel {
         this.setIdMateriel(idMateriel);
         this.setMateriel(materiel);
         this.setUnite(unite);
-    }
-        
-        
+    }        
 /*---------------------------------------------------------FONCTIONS---------------------------------------------------------*/       
     public static Object[] selectAll()throws Exception{
         String requete="select * from Materiel;";
@@ -69,7 +67,7 @@ public class Materiel {
     }
     Materiel pan = new Materiel();
     try (Statement stmt = c.createStatement()) {
-        stmt.executeUpdate("INSERT INTO Materiel (materiel,unite) VALUES ('" + this.getMateriel()+"','"+this.getUnite() + "')", Statement.RETURN_GENERATED_KEYS);
+        stmt.executeUpdate("INSERT INTO materiel (materiel,unite) VALUES ('" + this.getMateriel()+"','"+this.getUnite() + "')", Statement.RETURN_GENERATED_KEYS);
         try (ResultSet rs = stmt.getGeneratedKeys()) {
             if (rs.next()) pan = new Materiel(rs.getInt(1), rs.getString(2),rs.getString(3));
         }
