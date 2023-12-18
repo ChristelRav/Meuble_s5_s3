@@ -11,60 +11,48 @@ import outil.*;
 public class SousCategorie {
     int idSousCategorie,idCategorie;
     String sousCategorie;
-    double longueur,largeur,plus,tempsFabrication;
-
+    double longueur,largeur,plus,tempsFabrication;    
+/*---------------------------------------------------------GETTERS-----------------------------------------------------*/   
     public int getIdSousCategorie() {
         return idSousCategorie;
     }
-
-    public void setIdSousCategorie(int idSousCategorie) {
-        this.idSousCategorie = idSousCategorie;
-    }
-
     public int getIdCategorie() {
         return idCategorie;
     }
-
-    public void setIdCategorie(int idCategorie) {
-        this.idCategorie = idCategorie;
-    }
-
     public String getSousCategorie() {
         return sousCategorie;
     }
-
-    public void setSousCategorie(String sousCategorie) {
-        this.sousCategorie = sousCategorie;
-    }
-
-    public double getLongueur() {
+      public double getLongueur() {
         return longueur;
     }
-
+          public double getLargeur() {
+        return largeur;
+    }
+              public double getPlus() {
+        return plus;
+    }
+    public double getTempsFabrication() {
+        return tempsFabrication;
+    }          
+/*---------------------------------------------------------SETTERS-----------------------------------------------------*/  
+    public void setIdSousCategorie(int idSousCategorie) {
+        this.idSousCategorie = idSousCategorie;
+    }
+    public void setIdCategorie(int idCategorie) {
+        this.idCategorie = idCategorie;
+    }
+     public void setSousCategorie(String sousCategorie) {
+        this.sousCategorie = sousCategorie;
+    }
     public void setLongueur(double longueur) {
         this.longueur = longueur;
     }
-
-    public double getLargeur() {
-        return largeur;
-    }
-
     public void setLargeur(double largeur) {
         this.largeur = largeur;
     }
-
-    public double getPlus() {
-        return plus;
-    }
-
     public void setPlus(double plus) {
         this.plus = plus;
     }
-
-    public double getTempsFabrication() {
-        return tempsFabrication;
-    }
-
     public void setTempsFabrication(double tempsFabrication) {
         this.tempsFabrication = tempsFabrication;
     }
