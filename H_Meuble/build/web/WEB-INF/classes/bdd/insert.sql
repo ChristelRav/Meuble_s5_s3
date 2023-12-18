@@ -1,4 +1,4 @@
-INSERT INTO categorie (categorie) VALUES 
+ INSERT INTO categorie (categorie) VALUES 
 ('Canape'),
 ('Chaises'),
 ('Lits '),

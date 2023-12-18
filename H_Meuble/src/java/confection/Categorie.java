@@ -4,6 +4,8 @@
  */
 package confection;
 
+import java.sql.Connection;
+import java.sql.SQLException;
 import outil.*;
 
 /**
@@ -35,5 +37,14 @@ public class Categorie {
         Object[] result=General.takeObjects(Class.forName("confection.Categorie"),requete);
         return result;
     }
+    /*public static int insert() throws SQLException
+    {
+        int test=1;
+        Connection connect=new DbConnect().getConnect();
+        String requete="insert into Categorie ');";
+        int angalana=connect.createStatement().executeUpdate(requete);
+        connect.close();
+        return test;
+    }*/
     
 }
