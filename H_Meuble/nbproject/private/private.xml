@@ -3,8 +3,20 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/njaka/S5_S3/Meuble_s5_s3/H_Meuble/web/index.jsp</file>
+            <file>file:/home/njaka/S5_S3/Meuble_s5_s3/H_Meuble/src/java/confection/ConfectionMeuble.java</file>
+            <file>file:/home/njaka/S5_S3/Meuble_s5_s3/H_Meuble/src/java/confection/Modele.java</file>
+            <file>file:/home/njaka/S5_S3/Meuble_s5_s3/H_Meuble/src/java/confection/SousCategorie.java</file>
+            <file>file:/home/njaka/S5_S3/Meuble_s5_s3/H_Meuble/src/java/confection/Meuble.java</file>
             <file>file:/home/njaka/S5_S3/Meuble_s5_s3/H_Meuble/src/java/NewServlet.java</file>
+            <file>file:/home/njaka/S5_S3/Meuble_s5_s3/H_Meuble/src/java/confection/MeubleConfectionne.java</file>
+            <file>file:/home/njaka/S5_S3/Meuble_s5_s3/H_Meuble/src/java/outil/DbConnect.java</file>
+            <file>file:/home/njaka/S5_S3/Meuble_s5_s3/H_Meuble/src/java/confection/Categorie.java</file>
+            <file>file:/home/njaka/S5_S3/Meuble_s5_s3/H_Meuble/src/java/confection/Materiel.java</file>
+            <file>file:/home/njaka/S5_S3/Meuble_s5_s3/H_Meuble/src/java/confection/MiseEnVente.java</file>
+            <file>file:/home/njaka/S5_S3/Meuble_s5_s3/H_Meuble/src/java/confection/Style.java</file>
+            <file>file:/home/njaka/S5_S3/Meuble_s5_s3/H_Meuble/src/java/confection/StyleMateriel.java</file>
+            <file>file:/home/njaka/S5_S3/Meuble_s5_s3/H_Meuble/src/java/outil/General.java</file>
+            <file>file:/home/njaka/S5_S3/Meuble_s5_s3/H_Meuble/src/java/bdd/MEUBLE.sql</file>
         </group>
     </open-files>
 </project-private>
