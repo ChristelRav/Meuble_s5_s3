@@ -22,11 +22,12 @@ public class DbConnect {
         this.connect = connect;
     }
 
-    public DbConnect(){
+   public DbConnect(){
         Connection c = null;
         try {
             Class.forName("org.postgresql.Driver");
-            c = DriverManager.getConnection("jdbc:postgresql://localhost:5432/meuble","postgres", "postgres");
+            c = DriverManager.getConnection("jdbc:postgresql://localhost:5432/meuble","cmeuble", "meuble");
+
             setConnect(c);
         } 
         

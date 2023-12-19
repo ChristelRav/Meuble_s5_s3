@@ -1,5 +1,10 @@
+
+CREATE USER cmeuble WITH PASSWORD 'meuble';
 CREATE DATABASE meuble;
-\c meuble
+GRANT ALL PRIVILEGES ON DATABASE meuble TO cmeuble;
+
+psql -U cmeuble -d meuble
+
 
 CREATE TABLE categorie (
     idCategorie SERIAL PRIMARY KEY,
