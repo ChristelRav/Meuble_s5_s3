@@ -1,3 +1,4 @@
+-- CATEGORIE
 INSERT INTO categorie (categorie) VALUES 
 ('Canape'),
 ('Chaises'),
@@ -5,7 +6,7 @@ INSERT INTO categorie (categorie) VALUES
 ('Tables '),
 ('Armoires & dressing');
 
-
+-- MODELE
 INSERT INTO modele (idCategorie,modelecol1,modelecol2, modelecol3) VALUES 
 (1,'largeur','longueur','nombre de place','temps de Fabrication'),
 (2,'longueur','largeur','hauteur','temps de Fabrication'),
@@ -13,7 +14,7 @@ INSERT INTO modele (idCategorie,modelecol1,modelecol2, modelecol3) VALUES
 (4,'longueur','largeur','hauteur','temps de Fabrication'),
 (5,'longueur','largeur','hauteur','temps de Fabrication');
 
--- Pour la sous-catégorie de chaise
+-- SOUS-CATEGORIE
 INSERT INTO sousCategorie (idCategorie,sousCategorie,longueur,largeur, plus ,tempsFabrication) VALUES
 (1,'canape convertible',200,80,5, '12:30:00'),
 (1,'canape modulable',200,80,5, '12:30:00'),
@@ -34,13 +35,32 @@ INSERT INTO sousCategorie (idCategorie,sousCategorie,longueur,largeur, plus ,tem
 (3,'lit double',150,80,50, '12:30:00'),
 (3,'lit simple',80,50,40, '12:30:00'),
 (3,'lit rembourre',200,160,140, '09:30:00'),
-(3,'lit superposee',200,90,100, '15:30:00'),
+(3,'lit superposee',200,90,100, '15:30:00');
 
-
--- Insertion d'une ligne avec des valeurs spécifiques
+-- STYLE
 INSERT INTO style (style, tempsFabrication) VALUES
  ('Moderne', '12:30:00'),
  ('Royal','14:45:00');
+
+-- MATERIEL
+INSERT INTO materiel (materiel, unite) VALUES 
+('Bois', 'Mètre cube'),
+('Métal', 'Kilogramme'),
+('Verre', 'Mètre carré'),
+('Cuir', 'Mètre carré'),
+('Plastique', 'Kilogramme'),
+('Tissu', 'Mètre');
+
+-- STYLEMATERIEL
+INSERT INTO styleMateriel (idStyle, idMateriel) VALUES
+(1, 1),  -- Moderne + Bois
+(1, 2),  -- Moderne + Métal
+(1, 3),  -- Moderne + Verre
+(2, 4),  -- Royal + Cuir
+(2, 5),  -- Royal + Plastique
+(2, 6);  -- Royal + Tissu
+
+
 
 
 

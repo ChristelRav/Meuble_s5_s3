@@ -62,7 +62,7 @@ public class Style {
         Object[] result=General.takeObjects(Class.forName("confection.Style"),requete);
         return result;
     }
-     public Style insert(Connection c) throws Exception {
+    public Style insert(Connection c) throws Exception {
     if (c == null) {
         c = new DbConnect().getConnect();
     }
