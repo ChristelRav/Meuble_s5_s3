@@ -11,18 +11,15 @@ import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
-import outil.DbConnect;
-import java.sql.Connection;
-import java.util.ArrayList;
-import java.util.List;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletResponse;
+import java.sql.Time;
+import java.time.LocalTime;
 
 /**
  *
  * @author ravmi
  */
-public class DefaultServlet extends HttpServlet {
+public class InsertServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -44,26 +41,21 @@ public class DefaultServlet extends HttpServlet {
                }else{
                     a = Integer.parseInt(request.getParameter("a"));
                }
-               Object [] style =  Style.selectAll();
-               List<Materiel> lm = new Materiel().listAll(null);
-               List<Materiel> lm1 = new ArrayList<>();
-                //dispatch
-                   if(a  == 1 ){ 
-                       RequestDispatcher dispat = request.getRequestDispatcher("/pages/confection/default/index.jsp");
-                       dispat.forward(request, response);
-                   }else if( a == 2){
-                        request.setAttribute("listMateriel", lm1); 
-                        request.setAttribute("objStyle", style);
-                        RequestDispatcher dispat = request.getRequestDispatcher("/pages/confection/default/style.jsp");
-                        dispat.forward(request,response);
-                   }else if(a == 3){
-                        request.setAttribute("listMateriel", lm);
-                        RequestDispatcher dispat = request.getRequestDispatcher("/pages/confection/default/materiel.jsp");
-                        dispat.forward(request,response);
-                   }
+                if(a == 0){
+                    LocalTime localTime = LocalTime.parse(request.getParameter("temps"));
+                    Time time = Time.valueOf(localTime);
+                    Style st  = new Style(request.getParameter("style"),time);
+                    st.insert(null);
+                    response.sendRedirect("DefaultServlet?a=2");
+                }else if(a == 3){
+                    Materiel mat = new Materiel(request.getParameter("materiel"),request.getParameter("unite"));
+                    mat.insert(null);
+                    response.sendRedirect("DefaultServlet?a=3");
+                }
             }catch(Exception e){
                 out.println(e.getMessage());
             }
+            
         }
     }
 

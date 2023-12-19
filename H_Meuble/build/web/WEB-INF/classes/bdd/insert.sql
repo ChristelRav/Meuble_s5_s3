@@ -44,21 +44,21 @@ INSERT INTO style (style, tempsFabrication) VALUES
 
 -- MATERIEL
 INSERT INTO materiel (materiel, unite) VALUES 
-('Bois', 'Mètre cube'),
-('Métal', 'Kilogramme'),
-('Verre', 'Mètre carré'),
-('Cuir', 'Mètre carré'),
+('Bois', 'Metre cube'),
+('Metal', 'Kilogramme'),
+('Verre', 'Metre carre'),
+('Cuir', 'Mètre carre'),
 ('Plastique', 'Kilogramme'),
-('Tissu', 'Mètre');
+('Tissu', 'Metre');
 
 -- STYLEMATERIEL
-INSERT INTO styleMateriel (idStyle, idMateriel) VALUES
-(1, 1),  -- Moderne + Bois
-(1, 2),  -- Moderne + Métal
-(1, 3),  -- Moderne + Verre
-(2, 4),  -- Royal + Cuir
-(2, 5),  -- Royal + Plastique
-(2, 6);  -- Royal + Tissu
+INSERT INTO styleMateriel (idStyle, idMateriel,quantiteEnplus) VALUES
+(1, 6, 2),  -- Moderne + Bois
+(1, 2 , 2),  -- Moderne + Métal
+(2, 3, 2),  -- Moderne + Verre
+(2, 4,4),  -- Royal + Cuir
+(1, 5, 3),  -- Royal + Plastique
+(2, 6,2);  -- Royal + Tissu
 
 
 
