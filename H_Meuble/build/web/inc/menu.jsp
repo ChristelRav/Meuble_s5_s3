@@ -114,7 +114,7 @@
                 <% for (int i = 0; i < sc.length; i++) { %>
                 <%  Categorie tabStyle = (Categorie)sc[i]; %>
                     <li class="menu-item">
-                      <a href="pages-misc-error.html?categorie=<% out.println(tabStyle.getIdCategorie()); %>" class="menu-link">
+                      <a href="${pageContext.request.contextPath}/CategorieServlet?categorie=<% out.println(tabStyle.getIdCategorie()); %>" class="menu-link">
                         <div data-i18n="Error"><% out.print(tabStyle.getCategorie()); %></div>
                       </a>
                     </li>
