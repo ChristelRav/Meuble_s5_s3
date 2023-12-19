@@ -3,10 +3,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package confection;
+
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import outil.*;
+import outil.DbConnect;
+import outil.General;
+import java.sql.Time;
 
 /**
  *
@@ -15,8 +18,8 @@ import outil.*;
 public class Style {
     int idStyle;
     String style;
-    double tempsFabrication;
-    //getters
+    Time tempsFabrication;;
+/*---------------------------------------------------------GETTERS-----------------------------------------------------*/     
     public int getIdStyle() {
         return idStyle;
     }
@@ -25,11 +28,10 @@ public class Style {
         return style;
     }
 
-    public double getTempsFabrication() {
+    public Time getTempsFabrication() {
         return tempsFabrication;
     }
-    //setters
-
+/*---------------------------------------------------------SETTERS-----------------------------------------------------*/     
     public void setIdStyle(int idStyle) {
         this.idStyle = idStyle;
     }
@@ -38,20 +40,24 @@ public class Style {
         this.style = style;
     }
 
-    public void setTempsFabrication(double tempsFabrication) {
+    public void setTempsFabrication(Time tempsFabrication) {
         this.tempsFabrication = tempsFabrication;
     }
-    //constructor
+/*---------------------------------------------------------CONSTRUCTEURS-----------------------------------------------------*/  
+    public Style() {}
 
-    public Style(String style, double tempsFabrication) {
+    public Style(String style, Time tempsFabrication) {
+         this.setStyle(style);
+        this.setTempsFabrication(tempsFabrication);
+    }
+    
+    public Style(int idStyle, String style, Time tempsFabrication) {
+        this.setIdStyle(idStyle);
         this.setStyle(style);
         this.setTempsFabrication(tempsFabrication);
     }
-    public Style(){}
-    
-    //fonctions
-    public static Object[] selectAll()throws Exception
-    {
+/*---------------------------------------------------------FONCTIONS-----------------------------------------------------*/         
+    public static Object[] selectAll()throws Exception{
         String requete="select * from Style;";
         Object[] result=General.takeObjects(Class.forName("confection.Style"),requete);
         return result;
@@ -62,9 +68,9 @@ public class Style {
     }
     Style pan = new Style();
     try (Statement stmt = c.createStatement()) {
-        stmt.executeUpdate("INSERT INTO style (style,tempsFabrication) VALUES ("+this.getStyle()+",'"+this.getTempsFabrication()+"')", Statement.RETURN_GENERATED_KEYS);
+        stmt.executeUpdate("INSERT INTO style (style,tempsfabrication) VALUES ('"+this.getStyle()+"','"+this.getTempsFabrication() +"')", Statement.RETURN_GENERATED_KEYS);
         try (ResultSet rs = stmt.getGeneratedKeys()) {
-            if (rs.next()) pan = new Style(rs.getString(1),rs.getDouble(2));
+            if (rs.next()) pan = new Style(rs.getInt(1),rs.getString(2), rs.getTime(3));
         }
     } catch (Exception e) {
         e.printStackTrace();

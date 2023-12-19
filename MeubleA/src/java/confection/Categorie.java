@@ -9,9 +9,6 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import outil.*;
-
-
-
 /**
  *
  * @author ravmi
@@ -50,8 +47,6 @@ public class Categorie {
         Object[] result=General.takeObjects(Class.forName("confection.Categorie"),requete);
         return result;
     }
-   
-
     public Categorie insert(Connection c) throws Exception {
     if (c == null) {
         c = new DbConnect().getConnect();
@@ -67,7 +62,6 @@ public class Categorie {
     } finally {c.close();}
     return pan;
     }
-
 
     
 }
