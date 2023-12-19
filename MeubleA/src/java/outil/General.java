@@ -21,7 +21,6 @@ public class General {
         Field[] fields=objClass.getDeclaredFields();
         for(int i=0;i<fields.length;i++){
             Object settena=null;
-            System.out.println(fields[i].getType());
             if(fields[i].getType()==int.class){
                 settena=angalana.getInt(fields[i].getName().toLowerCase());
             }
@@ -33,9 +32,6 @@ public class General {
             }
             else if(fields[i].getType()==Class.forName("java.sql.Date")){
                 settena=angalana.getDate(fields[i].getName().toLowerCase());
-            }
-            else if(fields[i].getType()==Class.forName("java.sql.Time")){
-                settena=angalana.getTime(fields[i].getName().toLowerCase());
             }
             else{
                 settena=takeObject(fields[i].getType(),angalana);

@@ -13,8 +13,8 @@ import outil.*;
  */
 public class StyleMateriel {
     int idStyleMateriel,idStyle,idMateriel;
-    double quantiteEnplus;
-/*---------------------------------------------------------GETTERS-----------------------------------------------------*/   
+    //gettters
+
     public int getIdStyleMateriel() {
         return idStyleMateriel;
     }
@@ -26,10 +26,8 @@ public class StyleMateriel {
     public int getIdMateriel() {
         return idMateriel;
     }
-    public double getQuantiteEnplus() {
-        return quantiteEnplus;
-    }
-/*---------------------------------------------------------SETTERS-----------------------------------------------------*/   
+    //setters
+
     public void setIdStyleMateriel(int idStyleMateriel) {
         this.idStyleMateriel = idStyleMateriel;
     }
@@ -41,25 +39,16 @@ public class StyleMateriel {
     public void setIdMateriel(int idMateriel) {
         this.idMateriel = idMateriel;
     }
-    public void setQuantiteEnplus(double quantiteEnplus) {
-        this.quantiteEnplus = quantiteEnplus;
-    }
-/*---------------------------------------------------------CONSTRUCTEURS-----------------------------------------------------*/    
-    public StyleMateriel() {}
+    //constructor
+    public StyleMateriel(){}
 
-    public StyleMateriel(int idStyle, int idMateriel,double quantiteEnplus) {
+    public StyleMateriel(int idStyle, int idMateriel) {
         this.setIdStyle(idStyle);
         this.setIdMateriel(idMateriel);
-          this.setQuantiteEnplus(quantiteEnplus);
     }
-    public StyleMateriel(int idStyleMateriel, int idStyle, int idMateriel,double quantiteEnplus) {
-        this.setIdStyleMateriel(idStyleMateriel);
-        this.setIdStyle(idStyle);
-        this.setIdMateriel(idMateriel);
-        this.setQuantiteEnplus(quantiteEnplus);
-    }   
-/*---------------------------------------------------------FONCTIONS-----------------------------------------------------*/       
-    public static Object[] selectAll()throws Exception{
+    //fonctions
+    public static Object[] selectAll()throws Exception
+    {
         String requete="select * from StyleMateriel;";
         Object[] result=General.takeObjects(Class.forName("confection.StyleMateriel"),requete);
         return result;
@@ -70,9 +59,9 @@ public class StyleMateriel {
     }
     StyleMateriel pan = new StyleMateriel();
     try (Statement stmt = c.createStatement()) {
-        stmt.executeUpdate("INSERT INTO styleMateriel (idstyle,idMateriel,quantiteEnplus) VALUES ("+this.getIdStyle()+","+this.getIdMateriel()+","+this.getQuantiteEnplus() +")", Statement.RETURN_GENERATED_KEYS);
+        stmt.executeUpdate("INSERT INTO styleMateriel (idStyle,idMateriel) VALUES ("+this.getIdStyle()+",'"+this.getIdMateriel()+"')", Statement.RETURN_GENERATED_KEYS);
         try (ResultSet rs = stmt.getGeneratedKeys()) {
-            if (rs.next()) pan = new StyleMateriel(rs.getInt(1),rs.getInt(2),rs.getInt(3),rs.getDouble(4));
+            if (rs.next()) pan = new StyleMateriel(rs.getInt(1),rs.getInt(2));
         }
     } catch (Exception e) {
         e.printStackTrace();
