@@ -13,6 +13,6 @@
     </head>
     <body>
         <h1>Hello World!</h1>
-        <a href="${pageContext.request.contextPath}/pages/confection/default/index.jsp">Go</a>
+        <a href="${pageContext.request.contextPath}/DefaultServlet?a=1">Go</a>
     </body>
 </html>
