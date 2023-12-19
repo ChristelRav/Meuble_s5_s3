@@ -37,6 +37,14 @@ INSERT INTO sousCategorie (idCategorie,sousCategorie,longueur,largeur, plus ,tem
 (3,'lit superposee',200,90,100, '15:30:00'),
 
 
+-- Insertion d'une ligne avec des valeurs spécifiques
+INSERT INTO style (style, tempsFabrication) VALUES
+ ('Moderne', '12:30:00'),
+ ('Royal','14:45:00');
+
+
+
+
 
 
 

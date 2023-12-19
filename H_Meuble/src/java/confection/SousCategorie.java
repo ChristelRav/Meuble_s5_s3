@@ -56,6 +56,8 @@ public class SousCategorie {
     public void setTempsFabrication(double tempsFabrication) {
         this.tempsFabrication = tempsFabrication;
     }
+/*---------------------------------------------------------CONSTRUCTEURS-----------------------------------------------------*/  
+/*---------------------------------------------------------FONCTIONS-----------------------------------------------------*/      
     public static Object[] selectAll()throws Exception
     {
         String requete="select * from SousCategorie;";

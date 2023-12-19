@@ -4,7 +4,12 @@
  */
 package confection;
 
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import outil.DbConnect;
 import outil.General;
+import java.sql.Time;
 
 /**
  *
@@ -13,8 +18,8 @@ import outil.General;
 public class Style {
     int idStyle;
     String style;
-    double tempsFabrication;
-    //getters
+    Time tempsFabrication;;
+/*---------------------------------------------------------GETTERS-----------------------------------------------------*/     
     public int getIdStyle() {
         return idStyle;
     }
@@ -23,11 +28,10 @@ public class Style {
         return style;
     }
 
-    public double getTempsFabrication() {
+    public Time getTempsFabrication() {
         return tempsFabrication;
     }
-    //setters
-
+/*---------------------------------------------------------SETTERS-----------------------------------------------------*/     
     public void setIdStyle(int idStyle) {
         this.idStyle = idStyle;
     }
@@ -36,14 +40,41 @@ public class Style {
         this.style = style;
     }
 
-    public void setTempsFabrication(double tempsFabrication) {
+    public void setTempsFabrication(Time tempsFabrication) {
         this.tempsFabrication = tempsFabrication;
     }
+/*---------------------------------------------------------CONSTRUCTEURS-----------------------------------------------------*/  
+    public Style() {}
+
+    public Style(String style, Time tempsFabrication) {
+         this.setStyle(style);
+        this.setTempsFabrication(tempsFabrication);
+    }
     
-    public static Object[] selectAll()throws Exception
-    {
+    public Style(int idStyle, String style, Time tempsFabrication) {
+        this.setIdStyle(idStyle);
+        this.setStyle(style);
+        this.setTempsFabrication(tempsFabrication);
+    }
+/*---------------------------------------------------------FONCTIONS-----------------------------------------------------*/         
+    public static Object[] selectAll()throws Exception{
         String requete="select * from Style;";
         Object[] result=General.takeObjects(Class.forName("confection.Style"),requete);
         return result;
+    }
+     public Style insert(Connection c) throws Exception {
+    if (c == null) {
+        c = new DbConnect().getConnect();
+    }
+    Style pan = new Style();
+    try (Statement stmt = c.createStatement()) {
+        stmt.executeUpdate("INSERT INTO style (style,tempsfabrication) VALUES ('"+this.getStyle()+"','"+this.getTempsFabrication() +"')", Statement.RETURN_GENERATED_KEYS);
+        try (ResultSet rs = stmt.getGeneratedKeys()) {
+            if (rs.next()) pan = new Style(rs.getInt(1),rs.getString(2), rs.getTime(3));
+        }
+    } catch (Exception e) {
+        e.printStackTrace();
+    } finally {c.close();}
+    return pan;
     }
 }
