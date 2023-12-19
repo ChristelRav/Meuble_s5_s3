@@ -51,7 +51,8 @@ CREATE TABLE materiel (
 CREATE TABLE styleMateriel (
     idStyleMateriel SERIAL PRIMARY KEY,
     idStyle INT REFERENCES style(idStyle),
-    idMateriel INT REFERENCES materiel(idMateriel)
+    idMateriel INT REFERENCES materiel(idMateriel),
+    quantiteEnplus DOUBLE PRECISION
 );
 
 CREATE TABLE confectionMeuble (
