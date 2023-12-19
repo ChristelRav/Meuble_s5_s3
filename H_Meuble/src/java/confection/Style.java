@@ -3,8 +3,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package confection;
-
-import outil.General;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import outil.*;
 
 /**
  *
@@ -39,11 +41,34 @@ public class Style {
     public void setTempsFabrication(double tempsFabrication) {
         this.tempsFabrication = tempsFabrication;
     }
+    //constructor
+
+    public Style(String style, double tempsFabrication) {
+        this.setStyle(style);
+        this.setTempsFabrication(tempsFabrication);
+    }
+    public Style(){}
     
+    //fonctions
     public static Object[] selectAll()throws Exception
     {
         String requete="select * from Style;";
         Object[] result=General.takeObjects(Class.forName("confection.Style"),requete);
         return result;
+    }
+    public Style insert(Connection c) throws Exception {
+    if (c == null) {
+        c = new DbConnect().getConnect();
+    }
+    Style pan = new Style();
+    try (Statement stmt = c.createStatement()) {
+        stmt.executeUpdate("INSERT INTO style (style,tempsFabrication) VALUES ("+this.getStyle()+",'"+this.getTempsFabrication()+"')", Statement.RETURN_GENERATED_KEYS);
+        try (ResultSet rs = stmt.getGeneratedKeys()) {
+            if (rs.next()) pan = new Style(rs.getString(1),rs.getDouble(2));
+        }
+    } catch (Exception e) {
+        e.printStackTrace();
+    } finally {c.close();}
+    return pan;
     }
 }
