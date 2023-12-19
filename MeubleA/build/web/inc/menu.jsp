@@ -1,4 +1,6 @@
+<%@page import="confection.Categorie"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%  Object [] sc =  Categorie.selectAll(); %>
 <body>
     <!-- Layout wrapper -->
     <div class="layout-wrapper layout-content-navbar">
@@ -85,17 +87,17 @@
               </a>
               <ul class="menu-sub">
                 <li class="menu-item">
-                  <a href="${pageContext.request.contextPath}/pages/confection/default/index.jsp" class="menu-link">
+                  <a href="${pageContext.request.contextPath}/DefaultServlet?a=1" class="menu-link">
                     <div data-i18n="Without menu">Insertion Catégorie</div>
                   </a>
                 </li>
                 <li class="menu-item">
-                  <a href="${pageContext.request.contextPath}/pages/confection/default/style.jsp" class="menu-link">
+                  <a href="${pageContext.request.contextPath}/DefaultServlet?a=2" class="menu-link">
                     <div data-i18n="Without menu">Insertion Style</div>
                   </a>
                 </li>
                 <li class="menu-item">
-                  <a href="${pageContext.request.contextPath}/pages/confection/default/materiel.jsp" class="menu-link">
+                  <a href="${pageContext.request.contextPath}/DefaultServlet?a=3" class="menu-link">
                     <div data-i18n="Without navbar">Insertion Matériel</div>
                   </a>
                 </li>
@@ -109,21 +111,14 @@
                 <div data-i18n="Misc">Catégorie Meuble</div>
               </a>
               <ul class="menu-sub">
-                <li class="menu-item">
-                  <a href="pages-misc-error.html" class="menu-link">
-                    <div data-i18n="Error">Royal</div>
-                  </a>
-                </li>
-                <li class="menu-item">
-                  <a href="pages-misc-under-maintenance.html" class="menu-link">
-                    <div data-i18n="Under Maintenance">Bohème</div>
-                  </a>
-                </li>
-                <li class="menu-item">
-                  <a href="pages-misc-under-maintenance.html" class="menu-link">
-                    <div data-i18n="Under Maintenance">Contemporain</div>
-                  </a>
-                </li>
+                <% for (int i = 0; i < sc.length; i++) { %>
+                <%  Categorie tabStyle = (Categorie)sc[i]; %>
+                    <li class="menu-item">
+                      <a href="${pageContext.request.contextPath}/CategorieServlet?categorie=<% out.println(tabStyle.getIdCategorie()); %>" class="menu-link">
+                        <div data-i18n="Error"><% out.print(tabStyle.getCategorie()); %></div>
+                      </a>
+                    </li>
+                <% } %>
               </ul>
             </li>
             <!-- Components -->

@@ -1,8 +1,13 @@
-<%-- 
+`<%-- 
     Document   : materiel
     Created on : 13 déc. 2023, 15:59:53
     Author     : ravmi
 --%>
+<%@page import="confection.Materiel"%>
+<%@ page import="java.util.*" %>
+<% List<Materiel> a = (List<Materiel>) request.getAttribute("listMateriel"); %>
+
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
   <%@include file="../../../inc/header.jsp"%>
   <%@include file="../../../inc/menu.jsp"%>
@@ -20,11 +25,18 @@
                       <small class="text-muted float-end">Insert</small>
                     </div>
                     <div class="card-body">
-                        <form>
+                        <form action="${pageContext.request.contextPath}/InsertServlet"  method="get">
+                        <input type="hidden" value="3" class="form-control" id="exampleInputPassword1" name="a">
                         <div class="row mb-3">
                           <label class="col-sm-2 col-form-label" for="basic-default-name">Matériel</label>
                           <div class="col-sm-10">
-                            <input type="text" class="form-control" id="basic-default-name" />
+                            <input name="materiel" type="text" class="form-control" id="basic-default-name" />
+                          </div>
+                        </div>
+                        <div class="row mb-3">
+                          <label class="col-sm-2 col-form-label" for="basic-default-name">Unité</label>
+                          <div class="col-sm-10">
+                            <input name="unite" type="text" class="form-control" id="basic-default-name" />
                           </div>
                         </div>
                         <div class="row justify-content-end">
@@ -52,18 +64,12 @@
                                   </tr>
                                 </thead>
                                 <tbody class="table-border-bottom-0">
-                                  <tr>
-                                    <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>Bois</strong></td>
-                                    <td>55</td>
-                                  </tr>
-                                   <tr>
-                                    <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>Planche</strong></td>
-                                    <td>55</td>
-                                  </tr>
-                                   <tr>
-                                    <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>Bois</strong></td>
-                                    <td>55</td>
-                                  </tr>
+                                  <% for (int i = 0; i < a.size(); i++) { %>
+                                        <tr>
+                                          <td><i class="fab fa-angular fa-lg text-danger me-3"></i><strong><% out.print(a.get(i).getMateriel()); %></strong></td>
+                                          <td><% out.print(a.get(i).getUnite()); %></td>
+                                        </tr>
+                                  <% } %>
                                 </tbody>
                               </table>
                             </div>
