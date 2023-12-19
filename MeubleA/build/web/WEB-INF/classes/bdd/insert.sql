@@ -6,7 +6,7 @@
 ('Armoires & dressing');
 
 
-INSERT INTO modele (idCategorie,modelecol1,modelecol2, modelecol3) VALUES 
+INSERT INTO modele (idCategorie,modelecol1,modelecol2, modelecol3,modelecol4) VALUES 
 (1,'largeur','longueur','nombre de place','temps de Fabrication'),
 (2,'longueur','largeur','hauteur','temps de Fabrication'),
 (3,'longueur','largeur','hauteur','temps de Fabrication'),
