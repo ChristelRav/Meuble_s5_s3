@@ -101,6 +101,11 @@
                     <div data-i18n="Without navbar">Insertion Matériel</div>
                   </a>
                 </li>
+                      <li class="menu-item">
+                  <a href="${pageContext.request.contextPath}/DefaultServlet?a=4" class="menu-link">
+                    <div data-i18n="Without navbar">Insertion Meuble</div>
+                  </a>
+                </li>
               </ul>
             </li>
 

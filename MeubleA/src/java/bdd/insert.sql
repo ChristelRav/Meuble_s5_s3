@@ -36,6 +36,69 @@ INSERT INTO sousCategorie (idCategorie,sousCategorie,longueur,largeur, plus ,tem
 (3,'lit rembourre',200,160,140, '09:30:00'),
 (3,'lit superposee',200,90,100, '15:30:00'),
 
+-- Pour la catégorie 'Tables' (idCategorie = 4)
+INSERT INTO sousCategorie (idCategorie, sousCategorie, longueur, largeur, plus, tempsFabrication)
+VALUES
+(4, 'table basse', 120, 60, 3, '10:00:00'),
+(4, 'table à manger', 180, 90, 5, '14:00:00'),
+(4, 'table d\''appoint', 60, 60, 2, '08:30:00');
+
+-- Pour la catégorie 'Armoires & dressing' (idCategorie = 5)
+INSERT INTO sousC
+
+
+
+-- STYLE
+INSERT INTO style (style, tempsFabrication) VALUES
+ ('Moderne', '12:30:00'),
+ ('Royal','14:45:00');
+
+-- MATERIEL
+INSERT INTO materiel (materiel, unite) VALUES 
+('Bois', 'Metre cube'),
+('Metal', 'Kilogramme'),
+('Verre', 'Metre carre'),
+('Cuir', 'Mètre carre'),
+('Plastique', 'Kilogramme'),
+('Tissu', 'Metre');
+
+-- STYLEMATERIEL
+INSERT INTO styleMateriel (idStyle, idMateriel,quantiteEnplus) VALUES
+(1, 6, 2),  -- Moderne + Bois
+(1, 2 , 2),  -- Moderne + Métal
+(2, 3, 2),  -- Moderne + Verre
+(2, 4,4),  -- Royal + Cuir
+(1, 5, 3),  -- Royal + Plastique
+(2, 6,2);  -- Royal + Tissu
+
+-- Insertion dans la table 'meuble'
+INSERT INTO meuble (idSousCategorie, idStyle, meuble) VALUES
+(1, 1, 'Canapé Convertible Moderne'),
+(2, 1, 'Chaise de Gaming Moderne'),
+(3, 2, 'Lit Double Royal');
+
+-- Insertion dans la table 'confectionMeuble'
+INSERT INTO confectionMeuble (idMeuble, idMateriel, quantiteUtilisee) VALUES
+(1, 1, 3.5),  -- Canapé Convertible Moderne utilise 3.5 unités de Bois
+(1, 3, 2.0),  -- Canapé Convertible Moderne utilise 2.0 unités de Verre
+(1, 4, 3.5),  -- Canapé Convertible Moderne utilise 3.5 unités de Bois
+(1, 5, 2.0),  -- Canapé Convertible Moderne utilise 2.0 unités de Verre
+(2, 1, 3.5),  -- Canapé Convertible Moderne utilise 3.5 unités de Bois
+(2, 3, 2.0),  -- Canapé Convertible Moderne utilise 2.0 unités de Verre
+(2, 2, 1.5),  -- Chaise de Gaming Moderne utilise 1.5 unités de Métal
+(2, 4, 2.0),  -- Chaise de Gaming Moderne utilise 2.0 unités de Cuir
+(3, 1, 3.0);  -- Lit Double Royal utilise 3.0 unités de Palissandre
+
+
+
+
+
+
+
+
+
+
+
 
 
 

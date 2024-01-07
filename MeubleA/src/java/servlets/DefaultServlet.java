@@ -47,6 +47,7 @@ public class DefaultServlet extends HttpServlet {
                     a = Integer.parseInt(request.getParameter("a"));
                }
                Object [] style =  Style.selectAll();
+               Object [] sc =  SousCategorie.selectAll();
                List<Materiel> lm = new Materiel().listAll(null);
                List<Materiel> lm1 = new ArrayList<>();
                 //dispatch
@@ -59,8 +60,15 @@ public class DefaultServlet extends HttpServlet {
                         RequestDispatcher dispat = request.getRequestDispatcher("/pages/confection/default/style.jsp");
                         dispat.forward(request,response);
                    }else if(a == 3){
+                        request.setAttribute("objStyle", style);
+                        request.setAttribute("listSousC", sc);
                         request.setAttribute("listMateriel", lm);
                         RequestDispatcher dispat = request.getRequestDispatcher("/pages/confection/default/materiel.jsp");
+                        dispat.forward(request,response);
+                   }else if(a  == 4){
+                       request.setAttribute("listSousC", sc);
+                        request.setAttribute("objStyle", style);
+                       RequestDispatcher dispat = request.getRequestDispatcher("/pages/confection/default/meuble.jsp");
                         dispat.forward(request,response);
                    }
             }catch(Exception e){

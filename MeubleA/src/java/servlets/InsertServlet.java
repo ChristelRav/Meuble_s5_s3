@@ -4,12 +4,17 @@
  */
 package servlets;
 
+import confection.ConfectionMeuble;
 import confection.Materiel;
+import confection.Meuble;
 import confection.Style;
+import confection.StyleMateriel;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Time;
 import java.time.LocalTime;
+import java.util.List;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -50,6 +55,39 @@ public class InsertServlet extends HttpServlet {
                 }else if(a == 3){
                     Materiel mat = new Materiel(request.getParameter("materiel"),request.getParameter("unite"));
                     mat.insert(null);
+                    response.sendRedirect("DefaultServlet?a=3");
+                }
+                else if(a == 5){
+                    Meuble m = new Meuble(Integer.parseInt(request.getParameter("sousc")),Integer.parseInt(request.getParameter("style")),request.getParameter("meuble"));
+                    m = m.insert(null);
+                    int id = m.getIdMeuble();
+                    Style s = new Style(); 
+                    s.setIdStyle(Integer.parseInt(request.getParameter("style")));
+                    List<Materiel> lm = new Materiel().listBy_Style(null,s);
+                    
+                    request.setAttribute("listMateriel", lm);
+                    request.setAttribute("id", id);
+                    request.setAttribute("style", Integer.parseInt(request.getParameter("style")));
+                    
+                    RequestDispatcher dispat = request.getRequestDispatcher("/pages/confection/default/confection.jsp");
+                    dispat.forward(request,response);
+                }else if( a == 7){
+                    Style s = new Style(); 
+                    s.setIdStyle(Integer.parseInt(request.getParameter("style")));
+                    out.println("HUHU "+s.getIdStyle());
+                    int id =Integer.parseInt(request.getParameter("id"));
+                     List<Materiel> lm = new Materiel().listBy_Style(null,s);
+                      for (int i = 0; i < lm.size(); i++) {
+                            double qtt = Double.parseDouble(request.getParameter(lm.get(i).getMateriel()));
+                            ConfectionMeuble cm = new ConfectionMeuble(id,lm.get(i).getIdMateriel(),qtt);
+                            cm.insert(null);
+                        }
+                      response.sendRedirect("DefaultServlet?a=3");
+                    
+                } else if(a == 9){
+                    double d = Double.parseDouble(request.getParameter("quantite"));
+                    StyleMateriel stm = new StyleMateriel(Integer.parseInt(request.getParameter("style")),Integer.parseInt(request.getParameter("materiel")),d);
+                    stm.insert(null);
                     response.sendRedirect("DefaultServlet?a=3");
                 }
             }catch(Exception e){

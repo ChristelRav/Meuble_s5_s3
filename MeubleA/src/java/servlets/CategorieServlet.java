@@ -4,23 +4,24 @@
  */
 package servlets;
 
-import confection.Materiel;
+import confection.SousCategorie;
 import confection.Style;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
-
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author ravmi
  */
-public class SelectServlet extends HttpServlet {
+@WebServlet(name = "CategorieServlet", urlPatterns = {"/CategorieServlet"})
+public class CategorieServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,36 +37,27 @@ public class SelectServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             try{
-                 int a ;
-               if(request.getParameter("a")==null){
-                    a = (int)request.getAttribute("a");
-               }else{
-                    a = Integer.parseInt(request.getParameter("a"));
-               }
-                if(a == 0){
-                    Object [] style =  Style.selectAll();
-                    request.setAttribute("objStyle", style);
-                    int id = Integer.parseInt(request.getParameter("style"));
-                    Style sty = new Style(); sty.setIdStyle(id);
-                    List<Materiel> lm = new Materiel().listBy_Style(null,sty);
-                    request.setAttribute("listMateriel", lm);
-                    RequestDispatcher dispat = request.getRequestDispatcher("/pages/confection/default/style.jsp");
-                    dispat.forward(request,response);
-                }else if(a  ==3 ){
-                    out.println("HAHA");
-                    int id = Integer.parseInt(request.getParameter("materiel"));
-                    Materiel mm = new Materiel();
-                    mm.setIdMateriel(id);
-                    List<Materiel> lm = mm.list_MeubleC(null);
-                    request.setAttribute("listMateriel", lm);
-                     RequestDispatcher dispat = request.getRequestDispatcher("/pages/confection/default/detail.jsp");
-                    dispat.forward(request,response);
-                }
+                int id = Integer.parseInt(request.getParameter("categorie"));
+                
+                HttpSession session = request.getSession();
+                session.setAttribute("categorie", id);
+
+
+                SousCategorie ss = new SousCategorie(); ss.setIdCategorie(id);
+                Object [] sc =  ss.getOne();
+                Object [] style =  Style.selectAll();
+                
+                request.setAttribute("objStyle", style);
+                request.setAttribute("categorie", id);
+                request.setAttribute("souscategorie", sc);
+                RequestDispatcher dispat = request.getRequestDispatcher("/pages/confection/categorie/categorie.jsp");
+                dispat.forward(request,response);
             }catch(Exception e){
-                 out.println(e.getMessage());
+                out.println(e.getMessage());
             }
         }
     }
+
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.

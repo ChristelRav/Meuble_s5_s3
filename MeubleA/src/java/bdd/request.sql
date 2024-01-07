@@ -5,6 +5,13 @@ JOIN style s ON s.idStyle = sm.idStyle
 WHERE s.idStyle =2;
 
 
+SELECT me.meuble,m.unite,cm.quantiteUtilisee
+FROM confectionMeuble cm 
+JOIN materiel m ON m.idMateriel = cm.idMateriel
+JOIN meuble me ON cm.idMeuble = me.idMeuble
+WHERE m.idMateriel=2;
+
+
 -- Drop foreign key constraints
 ALTER TABLE confectionMeuble DROP CONSTRAINT confectionmeuble_idmeuble_fkey;
 ALTER TABLE confectionMeuble DROP CONSTRAINT confectionmeuble_idmateriel_fkey;

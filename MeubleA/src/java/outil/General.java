@@ -33,6 +33,9 @@ public class General {
             else if(fields[i].getType()==Class.forName("java.sql.Date")){
                 settena=angalana.getDate(fields[i].getName().toLowerCase());
             }
+            else if(fields[i].getType()==Class.forName("java.sql.Time")){
+                settena=angalana.getTime(fields[i].getName().toLowerCase());
+            }
             else{
                 settena=takeObject(fields[i].getType(),angalana);
             }

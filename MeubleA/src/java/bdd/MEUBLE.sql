@@ -39,7 +39,8 @@ CREATE TABLE style (
 CREATE TABLE meuble (
     idMeuble SERIAL PRIMARY KEY,
     idSousCategorie INT REFERENCES sousCategorie(idSousCategorie),
-    idStyle INT REFERENCES style(idStyle)
+    idStyle INT REFERENCES style(idStyle),
+    meuble VARCHAR(155)
 );
 
 CREATE TABLE materiel (

@@ -16,10 +16,10 @@ CREATE TABLE modele (
     idCategorie INT REFERENCES categorie(idCategorie),
     modelecol1 VARCHAR(155) DEFAULT 'longueur',
     modelecol2 VARCHAR(155) DEFAULT 'largeur',
-    modelecol3 VARCHAR(155), -- HAUTEUR// NB PLACE (Canapé)
+    modelecol3 VARCHAR(155), 
     modelecol4 VARCHAR(155) DEFAULT 'temps Fabrication'
 );
-
+-- HAUTEUR// NB PLACE (Canapé)
 CREATE TABLE sousCategorie (
     idSousCategorie SERIAL PRIMARY KEY,
     idCategorie INT REFERENCES categorie(idCategorie),
@@ -39,7 +39,8 @@ CREATE TABLE style (
 CREATE TABLE meuble (
     idMeuble SERIAL PRIMARY KEY,
     idSousCategorie INT REFERENCES sousCategorie(idSousCategorie),
-    idStyle INT REFERENCES style(idStyle)
+    idStyle INT REFERENCES style(idStyle),
+    meuble VARCHAR(155)
 );
 
 CREATE TABLE materiel (
